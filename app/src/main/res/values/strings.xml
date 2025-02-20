@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Orgs</string>
+    <string name="salada_de_frutas">Salada de Frutas</string>
+    <string name="laranja_manga_e_uva">Laranja, manga e uva</string>
+    <string name="_19_99">19.99</string>
+    <string name="etNome">Nome do produto</string>
+    <string name="etDesc">Descrição do produto</string>
+    <string name="etValor">Valor</string>
+    <string name="btnSalvar">Salvar</string>
+</resources>

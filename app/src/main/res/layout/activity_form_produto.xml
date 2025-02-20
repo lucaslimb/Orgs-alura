@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:fillViewport="true">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".ui.activity.FormProdutoActivity">
+
+
+        <EditText
+            android:id="@+id/etNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/marginDefault"
+            android:hint="@string/etNome"
+            android:inputType="text"
+            android:textSize="@dimen/fontDefault"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/etDesc"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/etDesc"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="@id/etNome"
+            app:layout_constraintStart_toStartOf="@id/etNome"
+            app:layout_constraintTop_toBottomOf="@id/etNome" />
+
+        <EditText
+            android:id="@+id/etValor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/etValor"
+            android:inputType="numberDecimal"
+            app:layout_constraintEnd_toEndOf="@id/etDesc"
+            app:layout_constraintStart_toStartOf="@id/etDesc"
+            app:layout_constraintTop_toBottomOf="@id/etDesc" />
+
+        <Button
+            android:id="@+id/btSalvar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/marginDefault"
+            android:text="@string/btnSalvar"
+            app:layout_constraintVertical_bias="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etValor" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+

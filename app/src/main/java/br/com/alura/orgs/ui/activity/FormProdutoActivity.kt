@@ -1,27 +1,26 @@
 package br.com.alura.orgs.ui.activity
 
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
-import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import br.com.alura.orgs.R
 import br.com.alura.orgs.dao.ProdutoDAO
+import br.com.alura.orgs.databinding.ActivityFormProdutoBinding
 import br.com.alura.orgs.model.Produto
 import java.math.BigDecimal
 
-class FormProdutoActivity : AppCompatActivity(R.layout.activity_form_produto) {
+class FormProdutoActivity : AppCompatActivity() {
 
-    val dao = ProdutoDAO()
+    private lateinit var binding: ActivityFormProdutoBinding
+    private val dao = ProdutoDAO()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityFormProdutoBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         configBotaoSalvar()
     }
 
-    private fun configBotaoSalvar(){
-        val btSalvar = findViewById<Button>(R.id.btSalvar)
-        btSalvar.setOnClickListener {
+    private fun configBotaoSalvar() {
+        binding.btSalvar.setOnClickListener {
             val novoProduto = createProduto()
             dao.add(novoProduto)
             finish()
@@ -29,13 +28,14 @@ class FormProdutoActivity : AppCompatActivity(R.layout.activity_form_produto) {
     }
 
     private fun createProduto(): Produto {
-        val etNome = findViewById<EditText>(R.id.etNome).text.toString()
-        val etDesc = findViewById<EditText>(R.id.etDesc).text.toString()
-        val etValor = findViewById<EditText>(R.id.etValor).text.toString()
+        val etNome = binding.etNome.text.toString()
+        val etDesc = binding.etDesc.text.toString()
+        val etValor = binding.etValor.text.toString()
         val valor = if (etValor.isBlank()) {
             BigDecimal.ZERO
-        } else
+        } else {
             BigDecimal(etValor)
+        }
 
         return Produto(
             nome = etNome,
@@ -43,6 +43,4 @@ class FormProdutoActivity : AppCompatActivity(R.layout.activity_form_produto) {
             valor = valor
         )
     }
-
-
 }
